@@ -1,0 +1,65 @@
+# Security - Sensitive Files
+*.env
+*.env.*
+.env.local
+.env.production
+config.json
+secrets.json
+credentials.json
+
+# Python Backend (ห้าม push - มี API keys)
+hermes_chat_server.py
+*.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary
+*.tmp
+*.temp
+.cache/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# API Keys & Tokens
+*_token
+*_key
+*_secret
+api_keys.txt
+
+# User data
+sessions/
+uploads/
+user_data/

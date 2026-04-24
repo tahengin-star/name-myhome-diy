@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Hermes Agent - Myhome DIY</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .chat-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .chat-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .chat-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2ecc71;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .chat-box {
+            flex: 1;
+            background: white;
+            border-left: 2px solid #e0e0e0;
+            border-right: 2px solid #e0e0e0;
+            overflow-y: auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            display: flex;
+            gap: 15px;
+            max-width: 80%;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: var(--primary);
+            color: white;
+        }
+
+        .message.agent .message-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .message-content {
+            background: #f5f7fa;
+            padding: 15px 20px;
+            border-radius: 20px;
+            line-height: 1.6;
+        }
+
+        .message.user .message-content {
+            background: var(--primary);
+            color: white;
+            border-radius: 20px 20px 5px 20px;
+        }
+
+        .message.agent .message-content {
+            background: #f5f7fa;
+            color: var(--text-dark);
+            border-radius: 20px 20px 20px 5px;
+        }
+
+        .message-time {
+            font-size: 0.75em;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .chat-input-container {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 20px 20px;
+            padding: 25px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .send-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 15px;
+            max-width: 80px;
+            padding: 15px 20px;
+            background: #f5f7fa;
+            border-radius: 20px;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray);
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .quick-action-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-action-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+        }
+
+        .welcome-message h3 {
+            color: var(--text-dark);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .welcome-message p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo-original.png" alt="Myhome DIY">
+                <div class="logo-text">
+                    <h1>Myhome DIY</h1>
+                    <p>ครีเอเตอร์สร้างวิดีโอ | Bangkok</p>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="services.html">วิดีโอ & รีวิว</a></li>
+                <li><a href="products.html">สินค้าแนะนำ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="chat.html" class="active">💬 AI Chat</a></li>
+            </ul>
+
+            <a href="dashboard.html" class="cta-button">🚀 Dashboard</a>
+        </nav>
+    </header>
+
+    <!-- CHAT CONTAINER -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>🤖 Hermes Agent Assistant</h2>
+            <div class="chat-status">
+                <div class="status-indicator"></div>
+                <span id="status-text">Connected</span>
+            </div>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="welcome-message">
+                <h3>👋 สวัสดีค่ะ!</h3>
+                <p>ฉันคือ Hermes Agent ผู้ช่วยอัจฉริยะของคุณ<br>มีอะไรให้ช่วยไหมคะ?</p>
+                
+                <div class="quick-actions">
+                    <button class="quick-action-btn" onclick="sendQuickMessage('สร้างสคริปต์วิดีโอให้หน่อย')">
+                        ✍️ สร้างสคริปต์วิดีโอ
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('ช่วยหาไอเดียคอนเทนต์ใหม่ๆ')">
+                        💡 หาไอเดียคอนเทนต์
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('วิเคราะห์เทรนด์ให้หน่อย')">
+                        📊 วิเคราะห์เทรนด์
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('แนะนำสินค้าน่าสนใจ')">
+                        🛍️ แนะนำสินค้า
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-container">
+            <input 
+                type="text" 
+                class="chat-input" 
+                id="messageInput" 
+                placeholder="พิมพ์ข้อความของคุณที่นี่..."
+                onkeypress="handleKeyPress(event)"
+            >
+            <button class="send-button" onclick="sendMessage()">
+                ➤
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const HERMES_API_URL = 'http://localhost:8000'; // Default Hermes Agent port
+        let conversationHistory = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkConnection();
+            loadHistory();
+        });
+
+        // Check if Hermes Agent is running
+        async function checkConnection() {
+            try {
+                const response = await fetch(`${HERMES_API_URL}/health`, {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+                
+                if (response.ok) {
+                    updateStatus('Connected', true);
+                } else {
+                    updateStatus('Disconnected', false);
+                }
+            } catch (error) {
+                updateStatus('Disconnected - Agent not running', false);
+                console.log('ไม่สามารถเชื่อมต่อกับ Hermes Agent. กรุณาเริ่ม Agent ก่อน');
+            }
+        }
+
+        function updateStatus(text, isConnected) {
+            document.getElementById('status-text').textContent = text;
+            const indicator = document.querySelector('.status-indicator');
+            indicator.style.background = isConnected ? '#2ecc71' : '#e74c3c';
+        }
+
+        // Send message
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            // Clear input
+            input.value = '';
+
+            // Add user message to chat
+            addMessage('user', message);
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Send to Hermes Agent
+            try {
+                const response = await fetch(`${HERMES_API_URL}/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        context: conversationHistory
+                    })
+                });
+
+                hideTypingIndicator();
+
+                if (response.ok) {
+                    const data = await response.json();
+                    addMessage('agent', data.response || data.message);
+                } else {
+                    // Fallback response if API not available
+                    addMessage('agent', 'ขออภัยค่ะ ตอนนี้ยังไม่สามารถเชื่อมต่อกับ Hermes Agent ได้ กรุณาตรวจสอบว่า Agent กำลังทำงานอยู่หรือไม่');
+                }
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage('agent', 'ขออภัยค่ะ เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาตรวจสอบว่า Hermes Agent กำลังทำงานที่ port 8000 หรือไม่');
+                console.error('Error:', error);
+            }
+
+            // Save history
+            saveHistory();
+        }
+
+        function addMessage(type, content) {
+            const chatBox = document.getElementById('chatBox');
+            const welcome = chatBox.querySelector('.welcome-message');
+            if (welcome) welcome.remove();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = type === 'user' ? '👤' : '🤖';
+
+            const contentDiv = document.createElement('div');
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = content;
+
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-time';
+            messageTime.textContent = new Date().toLocaleTimeString('th-TH', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+
+            contentDiv.appendChild(messageContent);
+            contentDiv.appendChild(messageTime);
+
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentDiv);
+
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Save to history
+            conversationHistory.push({ type, content, time: new Date().toISOString() });
+        }
+
+        function sendQuickMessage(message) {
+            document.getElementById('messageInput').value = message;
+            sendMessage();
+        }
+
+        function showTypingIndicator() {
+            const chatBox = document.getElementById('chatBox');
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator active';
+            indicator.id = 'typingIndicator';
+            
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'typing-dot';
+                indicator.appendChild(dot);
+            }
+            
+            chatBox.appendChild(indicator);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function saveHistory() {
+            localStorage.setItem('hermesChat', JSON.stringify(conversationHistory));
+        }
+
+        function loadHistory() {
+            const saved = localStorage.getItem('hermesChat');
+            if (saved) {
+                try {
+                    conversationHistory = JSON.parse(saved);
+                    // Load last 5 messages
+                    const recent = conversationHistory.slice(-5);
+                    const chatBox = document.getElementById('chatBox');
+                    const welcome = chatBox.querySelector('.welcome-message');
+                    
+                    if (recent.length > 0 && welcome) {
+                        welcome.remove();
+                        recent.forEach(msg => {
+                            addMessageFromHistory(msg.type, msg.content);
+                        });
+                    }
+                } catch (e) {
+                    console.error('Error loading history:', e);
+                }
+            }
+        }
+
+        function addMessageFromHistory(type, content) {
+            const chatBox = document.getElementById('chatBox');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = type === 'user' ? '👤' : '🤖';
+
+            const contentDiv = document.createElement('div');
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = content;
+
+            contentDiv.appendChild(messageContent);
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentDiv);
+
+            chatBox.appendChild(messageDiv);
+        }
+
+        // Check connection every 30 seconds
+        setInterval(checkConnection, 30000);
+    </script>
+</body>
+</html>

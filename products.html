@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สินค้าแนะนำ - Myhome DIY</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .product-badge.home { background: #e8f5e9; color: #27ae60; }
+        .product-badge.baby { background: #fce4ec; color: #e91e63; }
+        .product-badge.garden { background: #f3e5f5; color: #9c27b0; }
+        .product-badge.cafe { background: #fff3e0; color: #ff9800; }
+        .product-badge.musthave { background: #e3f2fd; color: #2196f3; }
+
+        .product-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .product-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-buy {
+            flex: 1;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        .category-section {
+            padding: 80px 50px;
+            scroll-margin-top: 80px;
+        }
+
+        .category-section:nth-child(even) {
+            background: var(--light);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo-original.png" alt="Myhome DIY">
+                <div class="logo-text">
+                    <h1>Myhome DIY</h1>
+                    <p>ครีเอเตอร์สร้างวิดีโอ | Bangkok</p>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="services.html">วิดีโอ & รีวิว</a></li>
+                <li><a href="products.html" class="active">สินค้าแนะนำ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="chat.html">💬 AI Chat</a></li>
+            </ul>
+
+            <a href="dashboard.html" class="cta-button">🚀 Dashboard</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" style="padding: 80px 50px;">
+        <div class="hero-content">
+            <span class="hero-badge">🛍️ สินค้าคัดสรร</span>
+            <h2>สินค้าดีๆ ราคาดี <span class="highlight">คัดมาแล้ว</span></h2>
+            <p>รีวิวจริง ใช้จริง คัดสรรสินค้าคุณภาพเพื่อคุณโดยเฉพาะ</p>
+        </div>
+    </section>
+
+    <!-- CATEGORY FILTERS -->
+    <section style="padding: 40px 50px; background: white; border-bottom: 2px solid var(--border); position: sticky; top: 70px; z-index: 999;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="#home" style="padding: 10px 25px; background: #27ae60; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                🏠 ของใช้ในบ้าน
+            </a>
+            <a href="#baby" style="padding: 10px 25px; background: #e91e63; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                👶 แม่และเด็ก
+            </a>
+            <a href="#garden" style="padding: 10px 25px; background: #9c27b0; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                🌸 สวน & ทุ่งหลาย
+            </a>
+            <a href="#cafe" style="padding: 10px 25px; background: #ff9800; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                ☕ คาเฟ่ & อุปกรณ์
+            </a>
+            <a href="#musthave" style="padding: 10px 25px; background: #2196f3; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                🎁 ของมันส์ต้องมี
+            </a>
+        </div>
+    </section>
+
+    <!-- CATEGORY 1: ของใช้ในบ้าน -->
+    <section id="home" class="category-section">
+        <div class="section-title">
+            <h3>🏠 ของใช้ในบ้าน</h3>
+            <p>สินค้าจำเป็นสำหรับบ้านทุกหลัง</p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="product-card">
+                <div class="product-image">🔧</div>
+                <div class="product-content">
+                    <span class="product-badge home">ของใช้ในบ้าน</span>
+                    <h4 class="product-title">ชุดเครื่องมือช่างพื้นฐาน 50 ชิ้น</h4>
+                    <p class="product-desc">ครบครันทุกอย่างที่คุณต้องการสำหรับซ่อมแซมบ้านง่ายๆ คุณภาพดี ทนทาน</p>
+                    <div class="product-price">฿899</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">💡</div>
+                <div class="product-content">
+                    <span class="product-badge home">ของใช้ในบ้าน</span>
+                    <h4 class="product-title">หลอดไฟ LED ประหยัดพลังงาน</h4>
+                    <p class="product-desc">สว่างกว่า ประหยัดไฟ ใช้ได้นาน 25,000 ชั่วโมง ราคาคุ้มค่า</p>
+                    <div class="product-price">฿199</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🧹</div>
+                <div class="product-content">
+                    <span class="product-badge home">ของใช้ในบ้าน</span>
+                    <h4 class="product-title">ไม้ถูพื้นอัจฉริยะ 360°</h4>
+                    <p class="product-desc">หมุนได้รอบทิศทาง ถูง่าย สะอาดทุกมุม น้ำหนักเบา พับเก็บได้</p>
+                    <div class="product-price">฿499</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 2: แม่และเด็ก -->
+    <section id="baby" class="category-section">
+        <div class="section-title">
+            <h3>👶 แม่และเด็ก</h3>
+            <p>ของใช้คุณภาพสำหรับคุณแม่และลูกน้อย</p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">🍼</div>
+                <div class="product-content">
+                    <span class="product-badge baby">แม่และเด็ก</span>
+                    <h4 class="product-title">ขวดนม BPA Free พร้อมหัวนม</h4>
+                    <p class="product-desc">ปลอดภัย ไม่มีสารพิษ ทรงสวย จับถนัดมือ ทำความสะอาดง่าย</p>
+                    <div class="product-price">฿299</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">👕</div>
+                <div class="product-content">
+                    <span class="product-badge baby">แม่และเด็ก</span>
+                    <h4 class="product-title">ชุดเด็กผ้าฝ้ายออร์แกนิค</h4>
+                    <p class="product-desc">ผ้านุ่ม ระบายอากาศดี ไม่ระคายเคือง เหมาะกับผิวบอบบาง</p>
+                    <div class="product-price">฿399</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">🎵</div>
+                <div class="product-content">
+                    <span class="product-badge baby">แม่และเด็ก</span>
+                    <h4 class="product-title">โมบายเพลงกล่อมเด็ก</h4>
+                    <p class="product-desc">เสียงไพเราะ ช่วยกล่อมลูกนอนหลับ มีไฟกลางคืน ควบคุมระยะไกล</p>
+                    <div class="product-price">฿899</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 3: สวน & ทุ่งหลาย -->
+    <section id="garden" class="category-section">
+        <div class="section-title">
+            <h3>🌸 สวน & ทุ่งหลาย</h3>
+            <p>อุปกรณ์สำหรับคนรักต้นไม้</p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">🌱</div>
+                <div class="product-content">
+                    <span class="product-badge garden">สวน & ทุ่งหลาย</span>
+                    <h4 class="product-title">ดินปลูกพรีเมี่ยม 5 ลิตร</h4>
+                    <p class="product-desc">สูตรพิเศษ อุดมด้วยธาตุอาหาร ระบายน้ำดี เหมาะกับทุกชนิดพืช</p>
+                    <div class="product-price">฿149</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">✂️</div>
+                <div class="product-content">
+                    <span class="product-badge garden">สวน & ทุ่งหลาย</span>
+                    <h4 class="product-title">กรรไกรตัดกิ่งไม้ญี่ปุ่น</h4>
+                    <p class="product-desc">คมกริบ ใช้งานง่าย ด้ามจับถนัดมือ สแตนเลสแท้ ทนทาน</p>
+                    <div class="product-price">฿599</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🌺</div>
+                <div class="product-content">
+                    <span class="product-badge garden">สวน & ทุ่งหลาย</span>
+                    <h4 class="product-title">เมล็ดพันธุ์ผักปลอดสาร แพ็ค 10</h4>
+                    <p class="product-desc">ออร์แกนิค ปลอดสารเคมี เก็บเกี่ยวได้เร็ว เหมาะปลูกในบ้าน</p>
+                    <div class="product-price">฿299</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 4: คาเฟ่ & อุปกรณ์ -->
+    <section id="cafe" class="category-section">
+        <div class="section-title">
+            <h3>☕ คาเฟ่ & อุปกรณ์</h3>
+            <p>จัดมุมคาเฟ่ที่บ้านแบบมืออาชีพ</p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);">☕</div>
+                <div class="product-content">
+                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
+                    <h4 class="product-title">เครื่องชงกาแฟมินิ ราคาประหยัด</h4>
+                    <p class="product-desc">ชงง่าย รสชาติดี เหมาะกับบ้าน คอมแพ็ค ประหยัดพื้นที่</p>
+                    <div class="product-price">฿1,299</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);">🥤</div>
+                <div class="product-content">
+                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
+                    <h4 class="product-title">แก้วกาแฟสุญญากาศ 400ml</h4>
+                    <p class="product-desc">เก็บความร้อน-เย็น นาน 6 ชั่วโมง สวยหรู พกพาสะดวก</p>
+                    <div class="product-price">฿399</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">🧁</div>
+                <div class="product-content">
+                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
+                    <h4 class="product-title">ชุดทำขนมอบเบกกิ้ง 12 ชิ้น</h4>
+                    <p class="product-desc">ครบชุด ทำขนมง่าย เกรดพรีเมี่ยม ทนความร้อนสูง</p>
+                    <div class="product-price">฿799</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 5: ของมันส์ต้องมี -->
+    <section id="musthave" class="category-section">
+        <div class="section-title">
+            <h3>🎁 ของมันส์ต้องมี</h3>
+            <p>สินค้าเด็ดที่ไม่ควรพลาด</p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🎨</div>
+                <div class="product-content">
+                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
+                    <h4 class="product-title">สีทาบ้านสูตรพิเศษ 5 ลิตร</h4>
+                    <p class="product-desc">ทาง่าย แห้งเร็ว ไม่มีกลิ่น ครอบคลุมดี สีสวย ทนนาน</p>
+                    <div class="product-price">฿899</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📦</div>
+                <div class="product-content">
+                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
+                    <h4 class="product-title">กล่องเก็บของอเนกประสงค์ 3 ชั้น</h4>
+                    <p class="product-desc">แข็งแรง ทนทาน เก็บของได้เยอะ ประหยัดพื้นที่ สีสันสวย</p>
+                    <div class="product-price">฿599</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">💡</div>
+                <div class="product-content">
+                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
+                    <h4 class="product-title">ไฟ LED เส้นแต่งห้อง 5 เมตร</h4>
+                    <p class="product-desc">สีสันสวยงาม ติดง่าย ประหยัดไฟ เปลี่ยนสีได้ มีรีโมท</p>
+                    <div class="product-price">฿399</div>
+                    <div class="product-footer">
+                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h3>🤔 ยังไม่แน่ใจว่าจะซื้ออะไรดี?</h3>
+            <p>ลองแชทกับ AI ของเราสิ! เราจะช่วยแนะนำสินค้าที่เหมาะกับคุณ</p>
+            <div class="hero-buttons">
+                <a href="chat.html" class="btn btn-primary">💬 แชทกับ AI</a>
+                <a href="services.html" class="btn btn-secondary">📺 ดูรีวิววิดีโอ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Myhome DIY</h4>
+                <p>"แต่งบ้าน ปลูกทุกสวย เลี้ยงลูก<br>ใช้ของดี ชีวิตง่ายขึ้น"</p>
+                <p style="margin-top: 20px;">📍 Bangkok, Thailand</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>เมนูลัด</h4>
+                <a href="index.html">หน้าแรก</a>
+                <a href="services.html">วิดีโอ & รีวิว</a>
+                <a href="products.html">สินค้าแนะนำ</a>
+                <a href="about.html">เกี่ยวกับเรา</a>
+                <a href="chat.html">💬 AI Chat</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>หมวดหมู่</h4>
+                <a href="#home">🏠 ของใช้ในบ้าน</a>
+                <a href="#baby">👶 แม่และเด็ก</a>
+                <a href="#garden">🌸 สวน & ทุ่งหลาย</a>
+                <a href="#cafe">☕ คาเฟ่ & อุปกรณ์</a>
+                <a href="#musthave">🎁 ของมันส์ต้องมี</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>ติดตามเรา</h4>
+                <a href="#" target="_blank">📘 Facebook</a>
+                <a href="#" target="_blank">📱 TikTok</a>
+                <a href="#" target="_blank">📷 Instagram</a>
+                <a href="#" target="_blank">💬 LINE Official</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Myhome DIY. All rights reserved. | ครีเอเตอร์สร้างวิดีโอ | รีวิว + คัดแบรนด์ครัวมือ</p>
+        </div>
+    </footer>
+</body>
+</html>

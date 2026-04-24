@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา - Myhome DIY</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .info-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-icon {
+            font-size: 2em;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo-original.png" alt="Myhome DIY">
+                <div class="logo-text">
+                    <h1>Myhome DIY</h1>
+                    <p>ครีเอเตอร์สร้างวิดีโอ | Bangkok</p>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="services.html">วิดีโอ & รีวิว</a></li>
+                <li><a href="products.html">สินค้าแนะนำ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="chat.html">💬 AI Chat</a></li>
+            </ul>
+
+            <a href="dashboard.html" class="cta-button">🚀 Dashboard</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" style="padding: 80px 50px;">
+        <div class="hero-content">
+            <span class="hero-badge">📬 ติดต่อเรา</span>
+            <h2>พร้อมรับฟัง <span class="highlight">ทุกคำถาม</span></h2>
+            <p>มีคำถาม ข้อเสนอแนะ หรืออยากติดต่อสอบถาม? ส่งข้อความมาหาเราได้เลย!</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section style="padding: 80px 50px;">
+        <div class="contact-container">
+            <!-- CONTACT FORM -->
+            <div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 10px;">📝 ส่งข้อความหาเรา</h3>
+                    <p style="color: #666; margin-bottom: 30px;">กรอกแบบฟอร์มด้านล่างเพื่อส่งข้อความถึงเรา</p>
+
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">ชื่อของคุณ *</label>
+                            <input type="text" id="name" name="name" placeholder="กรุณากรอกชื่อ" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">อีเมล *</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">หัวข้อ *</label>
+                            <input type="text" id="subject" name="subject" placeholder="คุณต้องการสอบถามเรื่องอะไร?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">ข้อความ *</label>
+                            <textarea id="message" name="message" placeholder="เขียนข้อความของคุณที่นี่..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">📨 ส่งข้อความ</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- CONTACT INFO -->
+            <div class="contact-info">
+                <!-- Social Media -->
+                <div class="info-card">
+                    <h4>📱 ติดตามเราที่</h4>
+                    
+                    <a href="https://www.facebook.com/profile.php?id=61570841748925" target="_blank" class="social-link">
+                        <div class="social-icon">📘</div>
+                        <div>
+                            <strong>Facebook</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #666;">@MyhomeDIY</p>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="social-link">
+                        <div class="social-icon">📱</div>
+                        <div>
+                            <strong>TikTok</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #666;">@myhomediy</p>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="social-link">
+                        <div class="social-icon">📷</div>
+                        <div>
+                            <strong>Instagram</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #666;">@myhome.diy</p>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="social-link">
+                        <div class="social-icon">💬</div>
+                        <div>
+                            <strong>LINE Official</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #666;">@myhomediy</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Location & Info -->
+                <div class="info-card">
+                    <h4>📍 ข้อมูลเพิ่มเติม</h4>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🏙️</div>
+                        <div>
+                            <strong>ที่ตั้ง</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">Bangkok, Thailand</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🎥</div>
+                        <div>
+                            <strong>ประเภทธุรกิจ</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">ครีเอเตอร์สร้างวิดีโอ | รีวิว + คัดแบรนด์ครัวมือ</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div>
+                            <strong>เวลาตอบกลับ</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">ภายใน 24-48 ชั่วโมง</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">💡</div>
+                        <div>
+                            <strong>ความเชี่ยวชาญ</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">แต่งบ้าน • ปลูกทุกสวย • เลี้ยงลูก • ใช้ของดี</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Chat -->
+                <div class="info-card" style="background: linear-gradient(135deg, var(--primary) 0%, #27ae60 100%); color: white; text-align: center;">
+                    <h4 style="color: white;">💬 ต้องการคำตอบเร็ว?</h4>
+                    <p style="margin-bottom: 20px; opacity: 0.95;">ลองแชทกับ AI Assistant ของเรา<br>รับคำตอบทันที 24/7</p>
+                    <a href="chat.html" style="display: inline-block; padding: 12px 30px; background: white; color: var(--primary); border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                        เริ่มแชท →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section style="padding: 80px 50px; background: var(--light);">
+        <div class="section-title">
+            <h3>❓ คำถามที่พบบ่อย (FAQ)</h3>
+            <p>คำตอบสำหรับคำถามที่ผู้คนมักถาม</p>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <h4 style="margin-bottom: 10px; color: #1a1a1a;">📺 มีวิดีโอใหม่ทุกวันไหม?</h4>
+                <p style="color: #666; line-height: 1.6;">เรากำลังวางแผนสร้างวิดีโอใหม่ๆ อยู่ ติดตามได้ในหน้า <a href="services.html" style="color: var(--primary);">วิดีโอ & รีวิว</a> หรือโซเชียลมีเดียของเรา</p>
+            </div>
+
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <h4 style="margin-bottom: 10px; color: #1a1a1a;">🛍️ สินค้าที่แนะนำซื้อได้จริงไหม?</h4>
+                <p style="color: #666; line-height: 1.6;">ได้เลยค่ะ! ทุกสินค้าที่เราแนะนำคือสินค้าที่เราใช้จริงหรือคัดสรรมาอย่างดี คุณสามารถดูรายละเอียดได้ที่หน้า <a href="products.html" style="color: var(--primary);">สินค้าแนะนำ</a></p>
+            </div>
+
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <h4 style="margin-bottom: 10px; color: #1a1a1a;">💬 AI Chat ใช้ฟรีไหม?</h4>
+                <p style="color: #666; line-height: 1.6;">ใช่ค่ะ! AI Chat ของเราให้บริการฟรี 100% คุณสามารถถามคำถามเกี่ยวกับ DIY, แต่งบ้าน, หรือขอคำแนะนำได้เลย</p>
+            </div>
+
+            <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <h4 style="margin-bottom: 10px; color: #1a1a1a;">📧 ตอบข้อความนานเท่าไหร่?</h4>
+                <p style="color: #666; line-height: 1.6;">เราพยายามตอบกลับภายใน 24-48 ชั่วโมงค่ะ แต่ถ้าต้องการคำตอบเร็ว ลองใช้ <a href="chat.html" style="color: var(--primary);">AI Chat</a> ของเราได้นะคะ!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h3>🎬 ติดตามเราเพื่อไม่พลาดคอนเทนต์ดีๆ!</h3>
+            <p>วิดีโอใหม่ รีวิวสินค้า และเคล็ดลับ DIY ทุกสัปดาห์</p>
+            <div class="hero-buttons">
+                <a href="https://www.facebook.com/profile.php?id=61570841748925" target="_blank" class="btn btn-primary">📘 ติดตาม Facebook</a>
+                <a href="index.html" class="btn btn-secondary">🏠 กลับหน้าแรก</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Myhome DIY</h4>
+                <p>"แต่งบ้าน ปลูกทุกสวย เลี้ยงลูก<br>ใช้ของดี ชีวิตง่ายขึ้น"</p>
+                <p style="margin-top: 20px;">📍 Bangkok, Thailand</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>เมนูลัด</h4>
+                <a href="index.html">หน้าแรก</a>
+                <a href="services.html">วิดีโอ & รีวิว</a>
+                <a href="products.html">สินค้าแนะนำ</a>
+                <a href="about.html">เกี่ยวกับเรา</a>
+                <a href="chat.html">💬 AI Chat</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>หมวดหมู่</h4>
+                <a href="products.html#home">🏠 ของใช้ในบ้าน</a>
+                <a href="products.html#baby">👶 แม่และเด็ก</a>
+                <a href="products.html#garden">🌸 สวน & ทุ่งหลาย</a>
+                <a href="products.html#cafe">☕ คาเฟ่ & อุปกรณ์</a>
+                <a href="products.html#musthave">🎁 ของมันส์ต้องมี</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>ติดตามเรา</h4>
+                <a href="https://www.facebook.com/profile.php?id=61570841748925" target="_blank">📘 Facebook</a>
+                <a href="#" target="_blank">📱 TikTok</a>
+                <a href="#" target="_blank">📷 Instagram</a>
+                <a href="#" target="_blank">💬 LINE Official</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Myhome DIY. All rights reserved. | ครีเอเตอร์สร้างวิดีโอ | รีวิว + คัดแบรนด์ครัวมือ</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // แสดงข้อความยืนยัน
+            alert(`ขอบคุณคุณ ${name}!\n\nเราได้รับข้อความของคุณแล้ว และจะตอบกลับทางอีเมล ${email} ภายใน 24-48 ชั่วโมง\n\nหัวข้อ: ${subject}`);
+
+            // รีเซ็ตฟอร์ม
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

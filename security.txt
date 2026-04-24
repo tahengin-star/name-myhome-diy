@@ -1,0 +1,26 @@
+Contact: mailto:security@yourdomain.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: th, en
+Canonical: https://yourusername.github.io/myhome-diy/.well-known/security.txt
+
+# Security Policy
+
+หากคุณพบช่องโหว่ด้านความปลอดภัย กรุณารายงานมาที่:
+- Email: security@yourdomain.com
+- หรือสร้าง Private Security Advisory บน GitHub
+
+## ขอบเขตการรายงาน:
+- XSS vulnerabilities
+- CSRF vulnerabilities  
+- Authentication/Authorization issues
+- Data leakage
+- SQL Injection
+- Server misconfigurations
+
+## สิ่งที่ไม่รับพิจารณา:
+- Social engineering attacks
+- Denial of Service (DoS)
+- Physical attacks
+- Issues in third-party services
+
+ขอบคุณสำหรับการช่วยรักษาความปลอดภัยของเว็บไซต์!
