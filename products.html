@@ -25,6 +25,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-image.placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             font-size: 5em;
         }
 
@@ -48,54 +62,114 @@
         .product-badge.musthave { background: #e3f2fd; color: #2196f3; }
 
         .product-title {
-            font-size: 1.3em;
+            font-size: 1.1em;
             font-weight: 700;
-            margin-bottom: 10px;
             color: #1a1a1a;
+            margin: 12px 0;
+            line-height: 1.4;
         }
 
         .product-desc {
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 10px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .product-price {
             font-size: 1.5em;
             font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 15px;
+            color: #e74c3c;
+            margin: 15px 0;
         }
 
         .product-footer {
             display: flex;
             gap: 10px;
+            margin-top: 20px;
         }
 
         .btn-buy {
             flex: 1;
             padding: 12px;
-            background: var(--primary);
+            background: #e74c3c;
             color: white;
-            text-align: center;
+            border: none;
             border-radius: 8px;
-            text-decoration: none;
+            cursor: pointer;
             font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
         }
 
         .btn-buy:hover {
-            background: var(--primary-dark);
-            transform: scale(1.02);
+            background: #c0392b;
+            transform: scale(1.05);
         }
 
         .category-section {
-            padding: 80px 50px;
-            scroll-margin-top: 80px;
+            padding: 60px 50px;
+            background: white;
         }
 
-        .category-section:nth-child(even) {
-            background: var(--light);
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 2em;
+            margin: 10px 0;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #f0f0f0;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: #fee;
+            border: 2px solid #e74c3c;
+            color: #c0392b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .empty-category {
+            text-align: center;
+            padding: 40px;
+            color: #999;
         }
     </style>
 </head>
@@ -131,271 +205,20 @@
         </div>
     </section>
 
-    <!-- CATEGORY FILTERS -->
-    <section style="padding: 40px 50px; background: white; border-bottom: 2px solid var(--border); position: sticky; top: 70px; z-index: 999;">
+    <!-- CATEGORY FILTERS (จะ update ด้วย JavaScript) -->
+    <section id="filter-section" style="padding: 40px 50px; background: white; border-bottom: 2px solid var(--border); position: sticky; top: 70px; z-index: 999;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <a href="#home" style="padding: 10px 25px; background: #27ae60; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                🏠 ของใช้ในบ้าน
-            </a>
-            <a href="#baby" style="padding: 10px 25px; background: #e91e63; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                👶 แม่และเด็ก
-            </a>
-            <a href="#garden" style="padding: 10px 25px; background: #9c27b0; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                🌸 สวนกุหลาบ
-            </a>
-            <a href="#cafe" style="padding: 10px 25px; background: #ff9800; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                ☕ คาเฟ่ & อุปกรณ์
-            </a>
-            <a href="#musthave" style="padding: 10px 25px; background: #2196f3; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                🎁 ของมันส์ต้องมี
-            </a>
+            <!-- Filters will be generated here -->
         </div>
     </section>
 
-    <!-- CATEGORY 1: ของใช้ในบ้าน -->
-    <section id="home" class="category-section">
-        <div class="section-title">
-            <h3>🏠 ของใช้ในบ้าน</h3>
-            <p>สินค้าจำเป็นสำหรับบ้านทุกหลัง</p>
+    <!-- PRODUCTS CONTAINER (จะ generate ด้วย JavaScript) -->
+    <div id="products-container">
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>📦 กำลังโหลดสินค้า...</p>
         </div>
-
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <div class="product-card">
-                <div class="product-image">🔧</div>
-                <div class="product-content">
-                    <span class="product-badge home">ของใช้ในบ้าน</span>
-                    <h4 class="product-title">ชุดเครื่องมือช่างพื้นฐาน 50 ชิ้น</h4>
-                    <p class="product-desc">ครบครันทุกอย่างที่คุณต้องการสำหรับซ่อมแซมบ้านง่ายๆ คุณภาพดี ทนทาน</p>
-                    <div class="product-price">฿899</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">💡</div>
-                <div class="product-content">
-                    <span class="product-badge home">ของใช้ในบ้าน</span>
-                    <h4 class="product-title">หลอดไฟ LED ประหยัดพลังงาน</h4>
-                    <p class="product-desc">สว่างกว่า ประหยัดไฟ ใช้ได้นาน 25,000 ชั่วโมง ราคาคุ้มค่า</p>
-                    <div class="product-price">฿199</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🧹</div>
-                <div class="product-content">
-                    <span class="product-badge home">ของใช้ในบ้าน</span>
-                    <h4 class="product-title">ไม้ถูพื้นอัจฉริยะ 360°</h4>
-                    <p class="product-desc">หมุนได้รอบทิศทาง ถูง่าย สะอาดทุกมุม น้ำหนักเบา พับเก็บได้</p>
-                    <div class="product-price">฿499</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORY 2: แม่และเด็ก -->
-    <section id="baby" class="category-section">
-        <div class="section-title">
-            <h3>👶 แม่และเด็ก</h3>
-            <p>ของใช้คุณภาพสำหรับคุณแม่และลูกน้อย</p>
-        </div>
-
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">🍼</div>
-                <div class="product-content">
-                    <span class="product-badge baby">แม่และเด็ก</span>
-                    <h4 class="product-title">ขวดนม BPA Free พร้อมหัวนม</h4>
-                    <p class="product-desc">ปลอดภัย ไม่มีสารพิษ ทรงสวย จับถนัดมือ ทำความสะอาดง่าย</p>
-                    <div class="product-price">฿299</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">👕</div>
-                <div class="product-content">
-                    <span class="product-badge baby">แม่และเด็ก</span>
-                    <h4 class="product-title">ชุดเด็กผ้าฝ้ายออร์แกนิค</h4>
-                    <p class="product-desc">ผ้านุ่ม ระบายอากาศดี ไม่ระคายเคือง เหมาะกับผิวบอบบาง</p>
-                    <div class="product-price">฿399</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">🎵</div>
-                <div class="product-content">
-                    <span class="product-badge baby">แม่และเด็ก</span>
-                    <h4 class="product-title">โมบายเพลงกล่อมเด็ก</h4>
-                    <p class="product-desc">เสียงไพเราะ ช่วยกล่อมลูกนอนหลับ มีไฟกลางคืน ควบคุมระยะไกล</p>
-                    <div class="product-price">฿899</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORY 3: สวนกุหลาบ -->
-    <section id="garden" class="category-section">
-        <div class="section-title">
-            <h3>🌸 สวนกุหลาบ</h3>
-            <p>อุปกรณ์สำหรับคนรักต้นไม้</p>
-        </div>
-
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">🌱</div>
-                <div class="product-content">
-                    <span class="product-badge garden">สวนกุหลาบ</span>
-                    <h4 class="product-title">ดินปลูกพรีเมี่ยม 5 ลิตร</h4>
-                    <p class="product-desc">สูตรพิเศษ อุดมด้วยธาตุอาหาร ระบายน้ำดี เหมาะกับทุกชนิดพืช</p>
-                    <div class="product-price">฿149</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">✂️</div>
-                <div class="product-content">
-                    <span class="product-badge garden">สวนกุหลาบ</span>
-                    <h4 class="product-title">กรรไกรตัดกิ่งไม้ญี่ปุ่น</h4>
-                    <p class="product-desc">คมกริบ ใช้งานง่าย ด้ามจับถนัดมือ สแตนเลสแท้ ทนทาน</p>
-                    <div class="product-price">฿599</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🌺</div>
-                <div class="product-content">
-                    <span class="product-badge garden">สวนกุหลาบ</span>
-                    <h4 class="product-title">เมล็ดพันธุ์ผักปลอดสาร แพ็ค 10</h4>
-                    <p class="product-desc">ออร์แกนิค ปลอดสารเคมี เก็บเกี่ยวได้เร็ว เหมาะปลูกในบ้าน</p>
-                    <div class="product-price">฿299</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORY 4: คาเฟ่ & อุปกรณ์ -->
-    <section id="cafe" class="category-section">
-        <div class="section-title">
-            <h3>☕ คาเฟ่ & อุปกรณ์</h3>
-            <p>จัดมุมคาเฟ่ที่บ้านแบบมืออาชีพ</p>
-        </div>
-
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);">☕</div>
-                <div class="product-content">
-                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
-                    <h4 class="product-title">เครื่องชงกาแฟมินิ ราคาประหยัด</h4>
-                    <p class="product-desc">ชงง่าย รสชาติดี เหมาะกับบ้าน คอมแพ็ค ประหยัดพื้นที่</p>
-                    <div class="product-price">฿1,299</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);">🥤</div>
-                <div class="product-content">
-                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
-                    <h4 class="product-title">แก้วกาแฟสุญญากาศ 400ml</h4>
-                    <p class="product-desc">เก็บความร้อน-เย็น นาน 6 ชั่วโมง สวยหรู พกพาสะดวก</p>
-                    <div class="product-price">฿399</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">🧁</div>
-                <div class="product-content">
-                    <span class="product-badge cafe">คาเฟ่ & อุปกรณ์</span>
-                    <h4 class="product-title">ชุดทำขนมอบเบกกิ้ง 12 ชิ้น</h4>
-                    <p class="product-desc">ครบชุด ทำขนมง่าย เกรดพรีเมี่ยม ทนความร้อนสูง</p>
-                    <div class="product-price">฿799</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORY 5: ของมันส์ต้องมี -->
-    <section id="musthave" class="category-section">
-        <div class="section-title">
-            <h3>🎁 ของมันส์ต้องมี</h3>
-            <p>สินค้าเด็ดที่ไม่ควรพลาด</p>
-        </div>
-
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🎨</div>
-                <div class="product-content">
-                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
-                    <h4 class="product-title">สีทาบ้านสูตรพิเศษ 5 ลิตร</h4>
-                    <p class="product-desc">ทาง่าย แห้งเร็ว ไม่มีกลิ่น ครอบคลุมดี สีสวย ทนนาน</p>
-                    <div class="product-price">฿899</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📦</div>
-                <div class="product-content">
-                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
-                    <h4 class="product-title">กล่องเก็บของอเนกประสงค์ 3 ชั้น</h4>
-                    <p class="product-desc">แข็งแรง ทนทาน เก็บของได้เยอะ ประหยัดพื้นที่ สีสันสวย</p>
-                    <div class="product-price">฿599</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">💡</div>
-                <div class="product-content">
-                    <span class="product-badge musthave">ของมันส์ต้องมี</span>
-                    <h4 class="product-title">ไฟ LED เส้นแต่งห้อง 5 เมตร</h4>
-                    <p class="product-desc">สีสันสวยงาม ติดง่าย ประหยัดไฟ เปลี่ยนสีได้ มีรีโมท</p>
-                    <div class="product-price">฿399</div>
-                    <div class="product-footer">
-                        <a href="#" class="btn-buy">🛒 ซื้อเลย</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- CTA -->
     <section class="cta-section">
@@ -449,5 +272,210 @@
             <p>&copy; 2026 Myhome DIY. All rights reserved. | ครีเอเตอร์สร้างวิดีโอ | รีวิว + คัดแบรนด์ครัวมือ</p>
         </div>
     </footer>
+
+    <script>
+        // Configuration
+        const DATABASE_URL = './database/products.json';
+        const CATEGORY_COLORS = {
+            'home': { bg: '#e8f5e9', text: '#27ae60', color: '#27ae60' },
+            'baby': { bg: '#fce4ec', text: '#e91e63', color: '#e91e63' },
+            'garden': { bg: '#f3e5f5', text: '#9c27b0', color: '#9c27b0' },
+            'cafe': { bg: '#fff3e0', text: '#ff9800', color: '#ff9800' },
+            'musthave': { bg: '#e3f2fd', text: '#2196f3', color: '#2196f3' }
+        };
+
+        // Load and render products
+        async function loadProducts() {
+            try {
+                // Fetch database
+                const response = await fetch(DATABASE_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                // Render filters
+                renderFilters(data.categories);
+
+                // Render products by category
+                renderProducts(data.categories);
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('products-container').innerHTML = `
+                    <div style="max-width: 1200px; margin: 0 auto;">
+                        <div class="error-message">
+                            <p>⚠️ ไม่สามารถโหลดสินค้าได้</p>
+                            <p style="font-size: 0.9em; margin-top: 10px;">
+                                ${error.message} - กรุณารีเฟรชหน้าใหม่
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function renderFilters(categories) {
+            const filterSection = document.querySelector('#filter-section > div');
+            filterSection.innerHTML = '';
+
+            for (const [catId, catData] of Object.entries(categories)) {
+                if (catData.products && catData.products.length > 0) {
+                    const btn = document.createElement('a');
+                    btn.href = `#${catId}`;
+                    btn.style.padding = '10px 25px';
+                    btn.style.background = CATEGORY_COLORS[catId]?.color || '#95a5a6';
+                    btn.style.color = 'white';
+                    btn.style.borderRadius = '50px';
+                    btn.style.textDecoration = 'none';
+                    btn.style.fontWeight = '600';
+                    btn.style.transition = 'all 0.3s';
+                    btn.textContent = `${catData.icon} ${catData.name}`;
+                    btn.onmouseover = () => btn.style.transform = 'scale(1.1)';
+                    btn.onmouseout = () => btn.style.transform = 'scale(1)';
+                    filterSection.appendChild(btn);
+                }
+            }
+        }
+
+        function renderProducts(categories) {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+
+            for (const [catId, catData] of Object.entries(categories)) {
+                const products = catData.products || [];
+
+                // Create category section
+                const section = document.createElement('section');
+                section.id = catId;
+                section.className = 'category-section';
+                section.style.borderTop = `3px solid ${CATEGORY_COLORS[catId]?.color || '#95a5a6'}`;
+
+                // Category title
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'section-title';
+                titleDiv.innerHTML = `
+                    <h3>${catData.icon} ${catData.name}</h3>
+                    <p>${catData.description}</p>
+                `;
+                section.appendChild(titleDiv);
+
+                // Products grid
+                const gridDiv = document.createElement('div');
+                gridDiv.style.maxWidth = '1200px';
+                gridDiv.style.margin = '0 auto';
+                gridDiv.style.display = 'grid';
+                gridDiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(320px, 1fr))';
+                gridDiv.style.gap = '30px';
+
+                if (products.length === 0) {
+                    gridDiv.innerHTML = '<div class="empty-category">📦 ยังไม่มีสินค้าในหมวดหมู่นี้</div>';
+                } else {
+                    products.forEach(product => {
+                        const card = createProductCard(product, catId);
+                        gridDiv.appendChild(card);
+                    });
+                }
+
+                section.appendChild(gridDiv);
+                container.appendChild(section);
+            }
+        }
+
+        function createProductCard(product, categoryId) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.dataset.id = product.id;
+
+            // Image
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'product-image';
+            
+            if (product.images && product.images.length > 0) {
+                const img = document.createElement('img');
+                img.src = product.images[0];
+                img.alt = product.title;
+                img.onerror = () => {
+                    img.style.display = 'none';
+                    imageDiv.classList.add('placeholder');
+                    imageDiv.textContent = getEmoji(categoryId);
+                };
+                imageDiv.appendChild(img);
+            } else {
+                imageDiv.classList.add('placeholder');
+                imageDiv.textContent = getEmoji(categoryId);
+            }
+            card.appendChild(imageDiv);
+
+            // Content
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'product-content';
+
+            // Category badge
+            const badge = document.createElement('span');
+            badge.className = `product-badge ${categoryId}`;
+            badge.textContent = product.category || categoryId;
+            contentDiv.appendChild(badge);
+
+            // Title
+            const title = document.createElement('h4');
+            title.className = 'product-title';
+            title.textContent = product.title;
+            contentDiv.appendChild(title);
+
+            // Description
+            const desc = document.createElement('p');
+            desc.className = 'product-desc';
+            desc.textContent = product.description || '';
+            contentDiv.appendChild(desc);
+
+            // Rating (if available)
+            if (product.rating) {
+                const rating = document.createElement('div');
+                rating.style.color = '#f39c12';
+                rating.style.fontSize = '0.9em';
+                rating.style.marginBottom = '10px';
+                rating.innerHTML = `⭐ ${product.rating.toFixed(1)} (${product.review_count || 0} reviews)`;
+                contentDiv.appendChild(rating);
+            }
+
+            // Price
+            const price = document.createElement('div');
+            price.className = 'product-price';
+            price.textContent = `฿${product.price.toLocaleString('th-TH')}`;
+            contentDiv.appendChild(price);
+
+            // Footer with button
+            const footer = document.createElement('div');
+            footer.className = 'product-footer';
+            const btn = document.createElement('a');
+            btn.href = product.affiliate_url || '#';
+            btn.className = 'btn-buy';
+            btn.textContent = '🛒 ซื้อเลย';
+            btn.target = '_blank';
+            footer.appendChild(btn);
+            contentDiv.appendChild(footer);
+
+            card.appendChild(contentDiv);
+            return card;
+        }
+
+        function getEmoji(categoryId) {
+            const emojis = {
+                'home': '🏠',
+                'baby': '👶',
+                'garden': '🌸',
+                'cafe': '☕',
+                'musthave': '🎁'
+            };
+            return emojis[categoryId] || '📦';
+        }
+
+        // Load products on page load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+
+        // Reload products every 5 minutes (in case database is updated)
+        setInterval(loadProducts, 5 * 60 * 1000);
+    </script>
 </body>
 </html>
