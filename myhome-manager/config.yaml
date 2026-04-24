@@ -1,0 +1,164 @@
+# Myhome DIY Management System Configuration
+
+# Site Configuration
+site:
+  name: "Myhome DIY"
+  url: "https://tahengin-star.github.io/name-myhome-diy/"
+  tagline: "แต่งบ้าน ปลูกทุกสวย เลี้ยงลูก ใช้ของดี"
+  
+# Categories
+categories:
+  home:
+    id: "home"
+    name: "ของใช้ในบ้าน"
+    icon: "🏠"
+    description: "อุปกรณ์ตแต่งบ้าน DIY และของใช้ในครัวเรือน"
+  
+  baby:
+    id: "baby"
+    name: "แม่และเด็ก"
+    icon: "👶"
+    description: "สินค้าสำหรับแม่และเด็ก ปลอดภัย คุณภาพดี"
+  
+  garden:
+    id: "garden"
+    name: "สวนกุหลาบ"
+    icon: "🌸"
+    description: "ต้นไม้ อุปกรณ์ทำสวน ปลูกกุหลาบ"
+  
+  cafe:
+    id: "cafe"
+    name: "คาเฟ่ & อุปกรณ์"
+    icon: "☕"
+    description: "อุปกรณ์ชงกาแฟ ตกแต่งคาเฟ่"
+  
+  musthave:
+    id: "musthave"
+    name: "ของมันส์ต้องมี"
+    icon: "🎁"
+    description: "ของแนะนำ ของมันส์ ไอเทมน่าสนใจ"
+
+# Scraper Settings
+scraper:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  timeout: 30
+  retry_attempts: 3
+  supported_platforms:
+    - shopee
+    - lazada
+    - amazon
+    - aliexpress
+  
+  # Data to extract
+  extract:
+    - title
+    - price
+    - images
+    - description
+    - specs
+    - reviews
+    - rating
+    - seller
+
+# Script Generator Settings
+script_generator:
+  tone: "casual"  # casual, professional, enthusiastic
+  language: "th"  # th, en
+  length: "short"  # short (30s), medium (60s), long (3min)
+  
+  # Script structure
+  structure:
+    - hook          # 3 seconds - grab attention
+    - intro         # 5 seconds - introduce product
+    - features      # 20 seconds - key features
+    - demo          # 15 seconds - show usage
+    - verdict       # 7 seconds - final thoughts
+    - cta          # 5 seconds - call to action
+  
+  # Hooks library (randomized)
+  hooks:
+    - "รอก่อน! ของชิ้นนี้ต้องมี"
+    - "ซื้อมา 3 วันแล้ว ต้องบอกต่อ"
+    - "ใครกำลังหาอันนี้อยู่ เข้ามา!"
+    - "ของดีราคาไม่แพง มีที่นี่"
+    - "รีวิวจริง ใช้จริง ไม่ได้รับสปอนเซอร์"
+
+# HTML Generator Settings
+html_generator:
+  template: "card"  # card, list, grid
+  show_price: true
+  show_rating: true
+  show_badge: true
+  lazy_load_images: true
+  
+  # Product card design
+  card_design:
+    border_radius: "15px"
+    shadow: "0 4px 15px rgba(0,0,0,0.08)"
+    hover_effect: true
+    
+# SEO Settings
+seo:
+  optimize_titles: true
+  generate_meta_descriptions: true
+  alt_text_for_images: true
+  
+  # Keywords by category
+  keywords:
+    home: ["แต่งบ้าน", "DIY", "ของใช้ในบ้าน", "ตกแต่ง"]
+    baby: ["แม่และเด็ก", "ของใช้เด็ก", "ของเล่นเด็ก"]
+    garden: ["ปลูกกุหลาบ", "ทำสวน", "ต้นไม้"]
+    cafe: ["ชงกาแฟ", "คาเฟ่", "เครื่องชงกาแฟ"]
+    musthave: ["ของแนะนำ", "รีวิว", "ของมันส์"]
+
+# Deployment Settings
+deployment:
+  auto_commit: true
+  auto_push: false  # Manual push for safety
+  commit_prefix: "[AUTO]"
+  
+  # Git settings
+  git:
+    remote: "origin"
+    branch: "main"
+    
+# Analytics Settings
+analytics:
+  track_views: true
+  track_clicks: true
+  track_conversions: false  # Requires affiliate integration
+  
+  # Performance thresholds
+  thresholds:
+    good_ctr: 0.05  # 5% click-through rate
+    good_views: 1000
+    
+# Automation Settings
+automation:
+  auto_generate_scripts: true
+  auto_update_html: false  # Manual review recommended
+  auto_deploy: false
+  
+  # Notifications
+  notify_on:
+    - new_product_added
+    - script_generated
+    - deployment_needed
+
+# Content Pipeline
+pipeline:
+  stages:
+    - research      # Find products
+    - scrape        # Extract data
+    - script        # Generate video script
+    - review        # Human review
+    - film          # Human creates content
+    - process       # AI processes final content
+    - deploy        # Update website
+    - track         # Monitor performance
+    
+# Task Management
+tasks:
+  auto_generate_todo: true
+  priority_system: true  # High, Medium, Low
+  deadline_tracking: false

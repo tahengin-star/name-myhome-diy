@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+
+# Databases
+database/*.json.bak
+database/*.db
+*.sqlite
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated files
+snippets/
+templates/video_scripts/*.json
+templates/video_scripts/*.txt
+
+# Secrets
+.env
+config.local.yaml
+secrets/

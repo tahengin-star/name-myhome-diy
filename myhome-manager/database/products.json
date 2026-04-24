@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-04-24T21:13:29.520489",
+    "total_products": 2
+  },
+  "categories": {
+    "home": {
+      "name": "ของใช้ในบ้าน",
+      "icon": "🏠",
+      "products": [
+        {
+          "id": "PROD_1777039974510",
+          "platform": "shopee",
+          "url": "https://s.shopee.co.th/1VvVPDP2O6",
+          "title": "Unknown Product",
+          "price": 0,
+          "currency": "THB",
+          "images": [],
+          "description": "",
+          "rating": 0,
+          "review_count": 0,
+          "seller": "Shopee Seller",
+          "scraped_at": "2026-04-24T21:12:54.510970",
+          "needs_manual_review": true
+        },
+        {
+          "id": "PROD_1777040009517",
+          "platform": "shopee",
+          "url": "https://s.shopee.co.th/1VvVPDP2O6",
+          "title": "Unknown Product",
+          "price": 0,
+          "currency": "THB",
+          "images": [],
+          "description": "",
+          "rating": 0,
+          "review_count": 0,
+          "seller": "Shopee Seller",
+          "scraped_at": "2026-04-24T21:13:29.518099",
+          "needs_manual_review": true
+        }
+      ]
+    },
+    "baby": {
+      "name": "แม่และเด็ก",
+      "icon": "👶",
+      "products": []
+    },
+    "garden": {
+      "name": "สวนกุหลาบ",
+      "icon": "🌸",
+      "products": []
+    },
+    "cafe": {
+      "name": "คาเฟ่ & อุปกรณ์",
+      "icon": "☕",
+      "products": []
+    },
+    "musthave": {
+      "name": "ของมันส์ต้องมี",
+      "icon": "🎁",
+      "products": []
+    }
+  }
+}
