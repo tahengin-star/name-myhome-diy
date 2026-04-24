@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0.0",
-    "last_updated": "2026-04-24T21:13:29.520489",
-    "total_products": 2
+    "last_updated": "2026-04-24T21:21:51.480748",
+    "total_products": 22
   },
   "categories": {
     "home": {
@@ -10,34 +10,235 @@
       "icon": "🏠",
       "products": [
         {
-          "id": "PROD_1777039974510",
-          "platform": "shopee",
-          "url": "https://s.shopee.co.th/1VvVPDP2O6",
-          "title": "Unknown Product",
-          "price": 0,
+          "id": "PROD_1777040365451",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "ไขควง",
+          "title": "ไขควง คุณภาพดี ราคาคุ้มค่า",
+          "price": 149,
           "currency": "THB",
-          "images": [],
-          "description": "",
-          "rating": 0,
-          "review_count": 0,
-          "seller": "Shopee Seller",
-          "scraped_at": "2026-04-24T21:12:54.510970",
-          "needs_manual_review": true
+          "images": [
+            "https://via.placeholder.com/400x400?text=ไขควง"
+          ],
+          "description": "รีวิว ไขควง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ไขควง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.450814"
         },
         {
-          "id": "PROD_1777040009517",
-          "platform": "shopee",
-          "url": "https://s.shopee.co.th/1VvVPDP2O6",
-          "title": "Unknown Product",
-          "price": 0,
+          "id": "PROD_1777040365459",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "คีมปากแหลม",
+          "title": "คีมปากแหลม คุณภาพดี ราคาคุ้มค่า",
+          "price": 199,
           "currency": "THB",
-          "images": [],
-          "description": "",
-          "rating": 0,
-          "review_count": 0,
-          "seller": "Shopee Seller",
-          "scraped_at": "2026-04-24T21:13:29.518099",
-          "needs_manual_review": true
+          "images": [
+            "https://via.placeholder.com/400x400?text=คีมปากแหลม"
+          ],
+          "description": "รีวิว คีมปากแหลม ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.7,
+          "review_count": 200,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK2",
+          "estimated_views": 2000,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา คีมปากแหลม เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.457464"
+        },
+        {
+          "id": "PROD_1777040365467",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "เครื่องมือช่าง",
+          "title": "เครื่องมือช่าง คุณภาพดี ราคาคุ้มค่า",
+          "price": 249,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=เครื่องมือช่าง"
+          ],
+          "description": "รีวิว เครื่องมือช่าง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.8,
+          "review_count": 250,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK3",
+          "estimated_views": 2500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา เครื่องมือช่าง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.464472"
+        },
+        {
+          "id": "PROD_1777040365475",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "หลอดไฟ LED",
+          "title": "หลอดไฟ LED คุณภาพดี ราคาคุ้มค่า",
+          "price": 299,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=หลอดไฟ+LED"
+          ],
+          "description": "รีวิว หลอดไฟ LED ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.9,
+          "review_count": 300,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK4",
+          "estimated_views": 3000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา หลอดไฟ LED เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.471312"
+        },
+        {
+          "id": "PROD_1777040365483",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "ปลั๊กไฟ",
+          "title": "ปลั๊กไฟ คุณภาพดี ราคาคุ้มค่า",
+          "price": 349,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ปลั๊กไฟ"
+          ],
+          "description": "รีวิว ปลั๊กไฟ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.0,
+          "review_count": 350,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK5",
+          "estimated_views": 3500,
+          "competition": "สูง",
+          "why_trending": "ค้นหา ปลั๊กไฟ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.478722"
+        },
+        {
+          "id": "PROD_1777040365491",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "สายไฟ",
+          "title": "สายไฟ คุณภาพดี ราคาคุ้มค่า",
+          "price": 399,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=สายไฟ"
+          ],
+          "description": "รีวิว สายไฟ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.1,
+          "review_count": 400,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK6",
+          "estimated_views": 4000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา สายไฟ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.485137"
+        },
+        {
+          "id": "PROD_1777040365498",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "มัลติมิเตอร์",
+          "title": "มัลติมิเตอร์ คุณภาพดี ราคาคุ้มค่า",
+          "price": 449,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=มัลติมิเตอร์"
+          ],
+          "description": "รีวิว มัลติมิเตอร์ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.2,
+          "review_count": 450,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK7",
+          "estimated_views": 4500,
+          "competition": "สูง",
+          "why_trending": "ค้นหา มัลติมิเตอร์ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.491774"
+        },
+        {
+          "id": "PROD_1777040365506",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "เทสเตอร์ไฟ",
+          "title": "เทสเตอร์ไฟ คุณภาพดี ราคาคุ้มค่า",
+          "price": 499,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=เทสเตอร์ไฟ"
+          ],
+          "description": "รีวิว เทสเตอร์ไฟ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.3,
+          "review_count": 500,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK8",
+          "estimated_views": 5000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา เทสเตอร์ไฟ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:19:25.498572"
+        },
+        {
+          "id": "PROD_1777040511440",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "ไขควง",
+          "title": "ไขควง คุณภาพดี ราคาคุ้มค่า",
+          "price": 599,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ไขควง"
+          ],
+          "description": "รีวิว ไขควง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ไขควง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.440002"
+        },
+        {
+          "id": "PROD_1777040511456",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "ไขควง",
+          "title": "ไขควง คุณภาพดี ราคาคุ้มค่า",
+          "price": 599,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ไขควง"
+          ],
+          "description": "รีวิว ไขควง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ไขควง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.455862"
+        },
+        {
+          "id": "PROD_1777040511470",
+          "platform": "ai_generated",
+          "category": "home",
+          "keyword": "ไขควง",
+          "title": "ไขควง คุณภาพดี ราคาคุ้มค่า",
+          "price": 599,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ไขควง"
+          ],
+          "description": "รีวิว ไขควง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ไขควง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.469085"
         }
       ]
     },
@@ -49,7 +250,239 @@
     "garden": {
       "name": "สวนกุหลาบ",
       "icon": "🌸",
-      "products": []
+      "products": [
+        {
+          "id": "PROD_1777040420871",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กุหลาบ",
+          "title": "กุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 111,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กุหลาบ"
+          ],
+          "description": "รีวิว กุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา กุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.870912"
+        },
+        {
+          "id": "PROD_1777040420873",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "ดอกกุหลาบ",
+          "title": "ดอกกุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 143,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ดอกกุหลาบ"
+          ],
+          "description": "รีวิว ดอกกุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.7,
+          "review_count": 200,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK2",
+          "estimated_views": 2000,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ดอกกุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.871964"
+        },
+        {
+          "id": "PROD_1777040420884",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "ปุ๋ยกุหลาบ",
+          "title": "ปุ๋ยกุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 175,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ปุ๋ยกุหลาบ"
+          ],
+          "description": "รีวิว ปุ๋ยกุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.8,
+          "review_count": 250,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK3",
+          "estimated_views": 2500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา ปุ๋ยกุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.881560"
+        },
+        {
+          "id": "PROD_1777040420893",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กรรไกรตัดกิ่ง",
+          "title": "กรรไกรตัดกิ่ง คุณภาพดี ราคาคุ้มค่า",
+          "price": 207,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กรรไกรตัดกิ่ง"
+          ],
+          "description": "รีวิว กรรไกรตัดกิ่ง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.9,
+          "review_count": 300,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK4",
+          "estimated_views": 3000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา กรรไกรตัดกิ่ง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.889100"
+        },
+        {
+          "id": "PROD_1777040420902",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กระถาง",
+          "title": "กระถาง คุณภาพดี ราคาคุ้มค่า",
+          "price": 239,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กระถาง"
+          ],
+          "description": "รีวิว กระถาง ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.0,
+          "review_count": 350,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK5",
+          "estimated_views": 3500,
+          "competition": "สูง",
+          "why_trending": "ค้นหา กระถาง เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.897213"
+        },
+        {
+          "id": "PROD_1777040420909",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "ดินปลูก",
+          "title": "ดินปลูก คุณภาพดี ราคาคุ้มค่า",
+          "price": 271,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=ดินปลูก"
+          ],
+          "description": "รีวิว ดินปลูก ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.1,
+          "review_count": 400,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK6",
+          "estimated_views": 4000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา ดินปลูก เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.903704"
+        },
+        {
+          "id": "PROD_1777040420918",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "สารป้องกันโรค",
+          "title": "สารป้องกันโรค คุณภาพดี ราคาคุ้มค่า",
+          "price": 303,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=สารป้องกันโรค"
+          ],
+          "description": "รีวิว สารป้องกันโรค ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.2,
+          "review_count": 450,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK7",
+          "estimated_views": 4500,
+          "competition": "สูง",
+          "why_trending": "ค้นหา สารป้องกันโรค เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.911386"
+        },
+        {
+          "id": "PROD_1777040420926",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "พ่นน้ำ",
+          "title": "พ่นน้ำ คุณภาพดี ราคาคุ้มค่า",
+          "price": 335,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=พ่นน้ำ"
+          ],
+          "description": "รีวิว พ่นน้ำ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 5.3,
+          "review_count": 500,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK8",
+          "estimated_views": 5000,
+          "competition": "สูง",
+          "why_trending": "ค้นหา พ่นน้ำ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:20:20.918139"
+        },
+        {
+          "id": "PROD_1777040511449",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กุหลาบ",
+          "title": "กุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 399,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กุหลาบ"
+          ],
+          "description": "รีวิว กุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา กุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.448445"
+        },
+        {
+          "id": "PROD_1777040511463",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กุหลาบ",
+          "title": "กุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 399,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กุหลาบ"
+          ],
+          "description": "รีวิว กุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา กุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.462704"
+        },
+        {
+          "id": "PROD_1777040511476",
+          "platform": "ai_generated",
+          "category": "garden",
+          "keyword": "กุหลาบ",
+          "title": "กุหลาบ คุณภาพดี ราคาคุ้มค่า",
+          "price": 399,
+          "currency": "THB",
+          "images": [
+            "https://via.placeholder.com/400x400?text=กุหลาบ"
+          ],
+          "description": "รีวิว กุหลาบ ที่ใช้ดีจริง ราคาไม่แพง คุณภาพเยี่ยม แนะนำเลยครับ",
+          "rating": 4.6,
+          "review_count": 150,
+          "seller": "Myhome DIY Recommended",
+          "affiliate_url": "https://shope.ee/YOURLINK1",
+          "estimated_views": 1500,
+          "competition": "กลาง",
+          "why_trending": "ค้นหา กุหลาบ เพิ่มขึ้น 30% ใน 7 วันที่ผ่านมา",
+          "scraped_at": "2026-04-24T21:21:51.475599"
+        }
+      ]
     },
     "cafe": {
       "name": "คาเฟ่ & อุปกรณ์",
